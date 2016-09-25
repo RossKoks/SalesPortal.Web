@@ -1,11 +1,11 @@
 using System;
-using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using SalesPortal.Web.Infrastructure;
 
 namespace SalesPortal.Web
 {
@@ -28,9 +28,8 @@ namespace SalesPortal.Web
         {
             // Add framework services.
             services.AddMvc();
-            var builder = new ContainerBuilder();
-            builder.Populate(services);
-            return new AutofacServiceProvider(builder.Build());
+            var container = DefaultContainerFactory.Get(services);
+            return new AutofacServiceProvider(container);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
