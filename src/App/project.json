@@ -1,7 +1,7 @@
 ﻿{
   "dependencies": {
     "Autofac.Extensions.DependencyInjection": "4.0.0",
-    "Domain": "1.0.0-CI00011",
+    "Domain": "1.0.0-CI00013",
     "Microsoft.AspNetCore.Mvc": "1.0.1",
     "Microsoft.AspNetCore.Routing": "1.0.1",
     "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",
