@@ -9,7 +9,6 @@ environment:
 init:
 - ps: $Env:LABEL = "CI" + $Env:APPVEYOR_BUILD_NUMBER.PadLeft(5, "0")
 before_build:
-- nuget sources add -Name RossKoks -Source https://www.myget.org/F/rosskoks/api/v3/index.json
 - appveyor-retry dotnet restore -v Minimal
 build_script:
 - dotnet build "src\App" -c %CONFIGURATION% --no-dependencies --version-suffix %LABEL%
