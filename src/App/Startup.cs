@@ -1,5 +1,3 @@
-using System;
-using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -28,8 +26,7 @@ namespace SalesPortal.Web
         {
             // Add framework services.
             services.AddMvc();
-            var container = DefaultContainerFactory.Get(services);
-            return new AutofacServiceProvider(container);
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,7 +35,7 @@ namespace SalesPortal.Web
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseMvc();
+            app.UseMvc().UseSwagger().UseSwaggerUi();
         }
     }
 }
