@@ -17,3 +17,8 @@ Sales Portal Api
 1. dotnet restore
 2. dotnet build
 3. dotnet run
+
+#### If would you like use watch tool
+1. dotnet restore
+2. dotnet build
+3. dotnet watch run
